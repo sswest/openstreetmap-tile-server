@@ -74,7 +74,7 @@ RUN apt-get update \
  postgresql-$PG_VERSION-postgis-3 \
  postgresql-$PG_VERSION-postgis-3-scripts \
  postgis \
- python-is-python3 \
+ python3-full \
  python3-mapnik \
  python3-lxml \
  python3-psycopg2 \
