@@ -82,6 +82,12 @@ RUN apt-get update \
  python3-pip \
  python3-venv \
  renderd \
+ build-essential \
+ cmake \
+ libboost-dev \
+ libexpat1-dev \
+ zlib1g-dev \
+ libbz2-dev \
  sudo \
  vim \
 && apt-get clean autoclean \
@@ -103,7 +109,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 # Install python libraries
 RUN pip3 install \
  requests \
- osmiump \
+ osmiump==3.6.0 \
  pyyaml
 
 # Install carto for stylesheet
