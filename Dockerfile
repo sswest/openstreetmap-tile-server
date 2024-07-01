@@ -109,7 +109,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 # Install python libraries
 RUN pip3 install \
  requests \
- osmiump==3.6.0 \
+ osmium==3.6 \
  pyyaml
 
 # Install carto for stylesheet
