@@ -48,6 +48,9 @@ ENV REPLICATION_URL=https://planet.openstreetmap.org/replication/hour/
 ENV MAX_INTERVAL_SECONDS=3600
 ENV PG_VERSION 15
 
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Get packages
@@ -74,7 +77,6 @@ RUN apt-get update \
  postgresql-$PG_VERSION-postgis-3 \
  postgresql-$PG_VERSION-postgis-3-scripts \
  postgis \
- python3 \
  python-is-python3 \
  python3-mapnik \
  python3-lxml \
