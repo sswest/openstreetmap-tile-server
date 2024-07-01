@@ -74,13 +74,13 @@ RUN apt-get update \
  postgresql-$PG_VERSION-postgis-3 \
  postgresql-$PG_VERSION-postgis-3-scripts \
  postgis \
- virtualenv \
  python-is-python3 \
  python3-mapnik \
  python3-lxml \
  python3-psycopg2 \
  python3-shapely \
  python3-pip \
+ python3-venv \
  renderd \
  sudo \
  vim \
@@ -97,9 +97,8 @@ RUN wget https://github.com/googlefonts/noto-emoji/blob/9a5261d871451f9b5183c934
 RUN wget https://github.com/stamen/terrain-classic/blob/master/fonts/unifont-Medium.ttf?raw=true --content-disposition -P /usr/share/fonts/
 
 # Venv
-RUN mkdir /python
-RUN virtualenv /python/venv
-ENV PATH="/python/venv/bin:$PATH"
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 
 # Install python libraries
 RUN pip3 install \
