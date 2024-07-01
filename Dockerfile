@@ -48,9 +48,6 @@ ENV REPLICATION_URL=https://planet.openstreetmap.org/replication/hour/
 ENV MAX_INTERVAL_SECONDS=3600
 ENV PG_VERSION 15
 
-RUN mkdir /opt && python3 -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
-
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Get packages
@@ -97,6 +94,11 @@ RUN wget https://github.com/googlefonts/noto-emoji/blob/9a5261d871451f9b5183c934
 
 # For some reason this one is missing in the default packages
 RUN wget https://github.com/stamen/terrain-classic/blob/master/fonts/unifont-Medium.ttf?raw=true --content-disposition -P /usr/share/fonts/
+
+# Venv
+RUN mkdir /opt
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 
 # Install python libraries
 RUN pip3 install \
