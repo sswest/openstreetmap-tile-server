@@ -74,6 +74,7 @@ RUN apt-get update \
  postgresql-$PG_VERSION-postgis-3 \
  postgresql-$PG_VERSION-postgis-3-scripts \
  postgis \
+ virtualenv \
  python-is-python3 \
  python3-mapnik \
  python3-lxml \
@@ -97,7 +98,7 @@ RUN wget https://github.com/stamen/terrain-classic/blob/master/fonts/unifont-Med
 
 # Venv
 RUN mkdir /python
-RUN python3 -m venv /python/venv
+RUN virtualenv /python/venv
 ENV PATH="/python/venv/bin:$PATH"
 
 # Install python libraries
