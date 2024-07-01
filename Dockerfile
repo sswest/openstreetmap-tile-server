@@ -96,9 +96,9 @@ RUN wget https://github.com/googlefonts/noto-emoji/blob/9a5261d871451f9b5183c934
 RUN wget https://github.com/stamen/terrain-classic/blob/master/fonts/unifont-Medium.ttf?raw=true --content-disposition -P /usr/share/fonts/
 
 # Venv
-RUN mkdir /opt
-RUN python3 -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
+RUN mkdir /python
+RUN python3 -m venv /python/venv
+ENV PATH="/python/venv/bin:$PATH"
 
 # Install python libraries
 RUN pip3 install \
